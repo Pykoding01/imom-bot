@@ -50,7 +50,7 @@ def get_sheet():
         tmp.flush()
         creds_path = tmp.name
     else:
-        creds_path = "credentials.json"
+        creds_path = "/etc/secrets/credentials.json"
     creds  = ServiceAccountCredentials.from_json_keyfile_name(creds_path, scope)
     client = gspread.authorize(creds)
     sheet  = client.open_by_key(SHEET_ID).sheet1
